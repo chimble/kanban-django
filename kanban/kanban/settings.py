@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -63,7 +62,10 @@ ROOT_URLCONF = 'kanban.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+                os.path.join(BASE_DIR, 'tasks/templates'),
+                os.path.join(BASE_DIR, 'tasks/templates/registration')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -111,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+LOGIN_REDIRECT_URL = '/api/tasks'
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
